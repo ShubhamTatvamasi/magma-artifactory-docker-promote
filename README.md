@@ -1,0 +1,1 @@
+# magma-artifactory-docker-publish
