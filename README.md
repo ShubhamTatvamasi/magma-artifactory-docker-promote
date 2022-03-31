@@ -1,1 +1,1 @@
-# magma-artifactory-docker-publish
+# magma-artifactory-docker-promote
