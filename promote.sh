@@ -15,6 +15,10 @@ declare -A repositories=(
 
 for repo in ${!repositories[@]}; do
   for image in ${repositories[${repo}]}; do
+
+    # Change docker URL to Artifactory
+    sed -i "s/docker/${repo}-prod/g" ~/.docker/config.json
+
     # Pull docker image from test registry
     docker pull ${repo}-test.${MAGMA_ARTIFACTORY}/${image}:${MAGMA_TAG}
 
@@ -27,5 +31,9 @@ for repo in ${!repositories[@]}; do
     # Remove uploaded image
     docker rmi ${repo}-test.${MAGMA_ARTIFACTORY}/${image}:${MAGMA_TAG}
     docker rmi ${repo}-prod.${MAGMA_ARTIFACTORY}/${image}:${NEW_MAGMA_TAG}
+
+    # Change docker URL back to docker
+    sed -i "s/${repo}-prod/docker/g" ~/.docker/config.json
+
   done
 done
