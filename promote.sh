@@ -33,6 +33,7 @@ for repo in ${!repositories[@]}; do
     # Remove uploaded image
     docker rmi ${repo}-test.${MAGMA_ARTIFACTORY}/${image}:${MAGMA_TAG}
     docker rmi ${repo}-prod.${MAGMA_ARTIFACTORY}/${image}:${NEW_MAGMA_TAG}
+    docker rmi ${repo}-prod.${MAGMA_ARTIFACTORY}/${image}:latest
 
     # Change docker URL back to docker
     sed -i "s/${repo}-prod/docker/g" ~/.docker/config.json
