@@ -1,1 +1,2 @@
 # magma-artifactory-docker-promote
+
