@@ -1,0 +1,14 @@
+name: docker promote
+
+on: [push]
+
+jobs:
+  docker-promote:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: docker/login-action@v1 
+      with:
+        registry: artifactory.magmacore.org
+        username: ${{ secrets.ARTIFACTORY_USERNAME }}
+        password: ${{ secrets.ARTIFACTORY_PASSWORD }}
