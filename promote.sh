@@ -3,7 +3,7 @@
 set -ex
 
 MAGMA_TAG=1.7
-NEW_MAGMA_TAG=1.7.0
+NEW_MAGMA_TAG=latest
 MAGMA_ARTIFACTORY=artifactory.magmacore.org
 
 declare -A repositories=(
