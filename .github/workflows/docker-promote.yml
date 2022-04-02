@@ -12,3 +12,5 @@ jobs:
         registry: docker.artifactory.magmacore.org
         username: ${{ secrets.ARTIFACTORY_USERNAME }}
         password: ${{ secrets.ARTIFACTORY_PASSWORD }}
+
+    # - run: ./promote.sh
