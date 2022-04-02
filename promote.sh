@@ -3,7 +3,7 @@
 set -ex
 
 MAGMA_TAG=1.7
-NEW_MAGMA_TAG=latest
+NEW_MAGMA_TAG=1.7.0
 MAGMA_ARTIFACTORY=artifactory.magmacore.org
 
 declare -A repositories=(
@@ -24,9 +24,11 @@ for repo in ${!repositories[@]}; do
 
     # Tag docker image with new tag
     docker tag ${repo}-test.${MAGMA_ARTIFACTORY}/${image}:${MAGMA_TAG} ${repo}-prod.${MAGMA_ARTIFACTORY}/${image}:${NEW_MAGMA_TAG}
+    docker tag ${repo}-test.${MAGMA_ARTIFACTORY}/${image}:${MAGMA_TAG} ${repo}-prod.${MAGMA_ARTIFACTORY}/${image}:latest
 
     # Push docker image to prod registry
     docker push ${repo}-prod.${MAGMA_ARTIFACTORY}/${image}:${NEW_MAGMA_TAG}
+    docker push ${repo}-prod.${MAGMA_ARTIFACTORY}/${image}:latest
 
     # Remove uploaded image
     docker rmi ${repo}-test.${MAGMA_ARTIFACTORY}/${image}:${MAGMA_TAG}
