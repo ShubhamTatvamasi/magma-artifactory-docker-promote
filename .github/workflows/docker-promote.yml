@@ -13,4 +13,4 @@ jobs:
         username: ${{ secrets.ARTIFACTORY_USERNAME }}
         password: ${{ secrets.ARTIFACTORY_PASSWORD }}
 
-    - run: ./promote.sh
+    # - run: ./promote.sh
