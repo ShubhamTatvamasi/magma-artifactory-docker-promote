@@ -1,6 +1,6 @@
 name: docker promote
 
-on: [push]
+on: push
 
 jobs:
   docker-promote:
