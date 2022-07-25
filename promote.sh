@@ -2,15 +2,16 @@
 
 set -ex
 
-MAGMA_TAG=1.7
+MAGMA_TAG=1.7.0-af536a721469deea5642434fa10027fe99dfc639
 NEW_MAGMA_TAG=1.7.0
 MAGMA_ARTIFACTORY=artifactory.magmacore.org
 
 declare -A repositories=(
-  [orc8r]="controller magmalte nginx fluentd active-mode-controller configuration-controller radio-controller db-service protocol-controller"
-  [feg]="gateway_go gateway_python"
-  [agw]="agw_gateway_c agw_gateway_python ghz_gateway_c ghz_gateway_python"
-  [cwf]="cwag_go gateway_go gateway_pipelined gateway_python gateway_sessiond operator"
+  [orc8r]="fluentd active-mode-controller configuration-controller radio-controller db-service protocol-controller"
+#   [orc8r]="controller magmalte nginx"
+#   [feg]="gateway_go gateway_python"
+#   [agw]="agw_gateway_c agw_gateway_python ghz_gateway_c ghz_gateway_python"
+#   [cwf]="cwag_go gateway_go gateway_pipelined gateway_python gateway_sessiond operator"
 )
 
 for repo in ${!repositories[@]}; do
