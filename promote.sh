@@ -7,7 +7,7 @@ NEW_MAGMA_TAG=1.7.0
 MAGMA_ARTIFACTORY=artifactory.magmacore.org
 
 declare -A repositories=(
-  [orc8r]="fluentd active-mode-controller configuration-controller radio-controller db-service protocol-controller"
+  [orc8r]="active-mode-controller configuration-controller radio-controller db-service protocol-controller"
 #   [orc8r]="controller magmalte nginx"
 #   [feg]="gateway_go gateway_python"
 #   [agw]="agw_gateway_c agw_gateway_python ghz_gateway_c ghz_gateway_python"
