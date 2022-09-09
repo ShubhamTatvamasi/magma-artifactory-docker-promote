@@ -28,12 +28,12 @@ for repo in ${!repositories[@]}; do
 
     # Push docker image to prod registry
     docker push ${repo}-prod.${MAGMA_ARTIFACTORY}/${image}:${NEW_MAGMA_TAG}
-#     docker push ${repo}-prod.${MAGMA_ARTIFACTORY}/${image}:latest
+    docker push ${repo}-prod.${MAGMA_ARTIFACTORY}/${image}:latest
 
     # Remove uploaded image
     docker rmi ${repo}-test.${MAGMA_ARTIFACTORY}/${image}:${MAGMA_TAG}
     docker rmi ${repo}-prod.${MAGMA_ARTIFACTORY}/${image}:${NEW_MAGMA_TAG}
-#     docker rmi ${repo}-prod.${MAGMA_ARTIFACTORY}/${image}:latest
+    docker rmi ${repo}-prod.${MAGMA_ARTIFACTORY}/${image}:latest
 
     # Change docker URL back to docker
     sed -i "s/${repo}-prod/docker/g" ~/.docker/config.json
